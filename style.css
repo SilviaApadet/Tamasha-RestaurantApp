@@ -1,5 +1,6 @@
 /* General Styles */
 body {
+    background-color: rgb(91, 5, 75);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -48,6 +49,40 @@ body {
     width: 100%;
     height: auto;
   }
+  /* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.tab-button:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.tab-button.active {
+  background: #45a049;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+  text-align: left;
+}
+
+.tab-content.active {
+  display: block;
+  padding: 1rem 0;
+}
   footer {
     text-align: center;
     background-color: #333;
