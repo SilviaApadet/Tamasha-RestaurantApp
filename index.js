@@ -1,6 +1,8 @@
-document.getElementById('searchButton').addEventListener('click', function() {
-    var searchQuery = document.getElementById('search input').value.trim();
-    
+//search and display menu
+function searchmenu() {
+ const query = document.getElementById('searchButton').addEventListener('click', function() {
+     const searchQuery = document.getElementById('searchInput').value.toLowercase();
+    const searchContainer= document.getElementById()
     if (searchQuery === '') {
         alert('Please enter a search term');
     } else {
@@ -64,5 +66,29 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   this.reset();
 });
 
+/// Array to store contactForm
+let contactForm = [];
+
+document.querySelector("#order").onclick = function () {
+    const fIRSTName  = document.querySelector("#Input field");
+    const fIRSTName = fIRSTNameInput.value.trim();
+
+    if (fIRSTName.length === 0) {
+        alert("Please enter a name.");
+    } else {
+        // Add name to the array
+        contactForm.push(fIRSTName);
+
+        // Add name to the DOM
+        document.querySelector("#fIRSTName").innerHTML += `
+        <div class="fIRSTName"> 
+            <span id="fIRSTName">
+                ${fIRSTName}
+            </span>
+            <button class="delete">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+        `;
 // Initialize Menu on Page Load
 document.addEventListener('DOMContentLoaded', fetchMenu);
