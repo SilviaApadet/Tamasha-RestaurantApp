@@ -1,5 +1,5 @@
 document.getElementById('searchButton').addEventListener('click', function() {
-    var searchQuery = document.getElementById('name').value.trim();
+    var searchQuery = document.getElementById('search input').value.trim();
     
     if (searchQuery === '') {
         alert('Please enter a search term');
