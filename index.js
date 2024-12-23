@@ -11,13 +11,13 @@ function searchmenu() {
     }
 });
 // Mock API URL
-const apiUrl = '//wsl.localhost/Ubuntu-20.04/home/abstract/Development/code/phase-1/Tamasha-RestaurantApp/index.html?name=Ijaka&email=tonnymartial45%40gmail.com&message=heyy%0D%0A#menu);'; // Replace with actual API if available
+const apiUrl = ("http://localhost:3000/menu")
+// ; // Replace with actual API if available
 // Fetch Menu Items from API
-async function fetchMenu() {
-  try {
-    const response = await fetch //wsl.localhost/Ubuntu-20.04/home/abstract/Development/code/phase-1/Tamasha-RestaurantApp/index.html?name=Ijaka&email=tonnymartial45%40gmail.com&message=heyy%0D%0A#menu);
-    const data = await response.json();
-
+fetch("http://localhost:3000/menu") 
+.then((response)=> response.json())
+.then((data)={
+   
     const menuContainer = document.getElementById('menuItems');
     menuContainer.innerHTML = ''; // Clear existing content
 
