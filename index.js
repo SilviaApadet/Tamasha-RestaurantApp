@@ -39,7 +39,7 @@ async function fetchMenu() {
 }
 
 // Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -85,8 +85,8 @@ function searchMenu() {
   });
 }
 
-// Attach search function to input's `input` menu
-searchInput.addEventListener("input", searchmenu);
+// Attach search function to input's `input` event
+document.getElementById('searchInput').addEventListener('input', searchMenu);
 
 // Initialize Menu on Page Load
 document.addEventListener('DOMContentLoaded', fetchMenu);
