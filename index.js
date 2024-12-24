@@ -1,6 +1,5 @@
 //search and display menu
-function searchmenu() {
- const query = document.getElementById('searchButton').addEventListener('click', function() {
+ document.getElementById('searchButton').addEventListener('click', function() {
      const searchQuery = document.getElementById('searchInput').value.toLowercase();
     const searchContainer= document.getElementById()
     if (searchQuery === '') {
@@ -65,29 +64,16 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   alert('Message sent successfully!');
   this.reset();
 });
-//Array to store contact form details:
+// Select the button
+const button = document.getElementById('submit');
 
-let contactForm = [];
+// Add an event listener for the 'click' event
+button.addEventListener('order', function() {
+  alert('Message sent successfully!');
+});
 
-document.querySelector("#submit").onclick = function () {
-    const name  = document.querySelector("#Input field");
-    const fIRSTName = fIRSTNameInput.value.trim();
-  
-    if (fIRSTName.length === 0) {
-        alert("Please enter a name.");
-    } else {
-        // Add name to the array
-        contactForm.push(fIRSTName);
-
-        // Add name to the DOM
-        document.querySelector("#fIRSTName").innerHTML += `
-        <div class="name"> 
-            <span id="fIRSTName">
-                ${fIRSTName}
-            </span>
-        </div>
-        `;
-
+// Attach search function to input's `input` menu
+searchInput.addEventListener("input", searchmenu);
 
 // Initialize Menu on Page Load
 document.addEventListener('DOMContentLoaded', fetchMenu);
