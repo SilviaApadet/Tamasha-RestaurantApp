@@ -1,6 +1,8 @@
 # Tamasha-RestaurantApp
 PHASE-1 PROJECT TAMASHA-RESTAURANT APP
 
+IJADETS PIZZA
+
 This website is a platform where our customers are able to interact with us and our variety of services.
 
 The main aim of this project website is to provide information on the following;
