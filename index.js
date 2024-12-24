@@ -1,12 +1,12 @@
 //search and display menu
- document.getElementById('searchButton').addEventListener('search', function() {
+ document.getElementById('searchButton').addEventListener('click', function() {
      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
     const searchContainer= document.getElementById("result")
     if (searchQuery === '') {
         alert('Please enter a search term');
     } else {
         // In a real scenario, here you would process the search (e.g., search through a list of data, or make an API call)
-        document.getElementById('results').innerHTML = `<p>Results for: <strong>${searchQuery}</strong></p>`;
+         searchContainer.innerHTML = `<p>Results for: <strong>${searchQuery}</strong></p>`;
     }
 });
 // Mock API URL
