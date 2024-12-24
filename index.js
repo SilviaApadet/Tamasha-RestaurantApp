@@ -1,6 +1,6 @@
 //search and display menu
  document.getElementById('searchButton').addEventListener('click', function() {
-     const searchQuery = document.getElementById('searchInput').value.toLowercase();
+     const searchQuery = document.getElementById('searchInput').value.C();
     const searchContainer= document.getElementById()
     if (searchQuery === '') {
         alert('Please enter a search term');
