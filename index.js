@@ -71,6 +71,19 @@ const button = document.getElementById('submit');
 button.addEventListener('order', function() {
   alert('Message sent successfully!');
 });
+function searchMenu() {
+  const query = document.getElementById('searchInput').value.toLowerCase();
+  const menuItems = document.querySelectorAll('.menu-item');
+
+  menuItems.forEach((item) => {
+    const title = item.querySelector('h3').innerText.toLowerCase();
+    if (title.includes(query)) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
 
 // Attach search function to input's `input` menu
 searchInput.addEventListener("input", searchmenu);
