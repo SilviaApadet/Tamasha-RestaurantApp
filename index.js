@@ -20,6 +20,15 @@ async function fetchMenu() {
 
     const menuContainer = document.getElementById('menuItems');
     menuContainer.innerHTML = ''; // Clear existing content
+   const searchValue = searchInput.value.toLowerCase();
+                let filteredData;
+
+                if (searchValue === "") {
+                    filteredData = rawData;
+                } else {
+                    filteredData = rawData.filter((menuItem) => {
+                        return item.title.toLowerCase().includes(searchValue) || item.genre.toLowerCase().includes(searchValue) || item.platform.toLowerCase().includes(searchValue);
+                    })
 
     data.forEach((item, index) => {
       const menuItem = document.createElement('div');
