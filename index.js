@@ -1,14 +1,16 @@
-//search and display menu
- document.getElementById('searchButton').addEventListener('click', function() {
-     const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-    const searchContainer= document.getElementById("result")
-    if (searchQuery === '') {
-        alert('Please enter a search term');
-    } else {
-        // In a real scenario, here you would process the search (e.g., search through a list of data, or make an API call)
-         searchContainer.innerHTML = `<p>Results for: <strong>${searchQuery}</strong></p>`;
-    }
+// Search and Display Results
+document.getElementById('searchButton').addEventListener('click', function () {
+  const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+  const searchContainer = document.getElementById('result');
+
+  if (searchQuery === '') {
+    alert('Please enter a search term');
+  } else {
+    searchContainer.innerHTML = `<p>Results for: <strong>${searchQuery}</strong></p>`;
+    // Add further search logic here if needed
+  }
 });
+
 // Mock API URL
 const apiUrl = 'http://localhost:3000/menu'; // Replace with actual API if available
 
@@ -20,7 +22,7 @@ async function fetchMenu() {
 
     const menuContainer = document.getElementById('menuItems');
     menuContainer.innerHTML = ''; // Clear existing content
-  
+
     data.forEach((item, index) => {
       const menuItem = document.createElement('div');
       menuItem.classList.add('menu-item');
@@ -34,16 +36,17 @@ async function fetchMenu() {
     });
   } catch (error) {
     console.error('Error fetching menu:', error);
-    document.getElementById('menuItems').innerHTML = '<p>Failed to load menu items. Please try again later.</p>';
+    document.getElementById('menuItems').innerHTML =
+      '<p>Failed to load menu items. Please try again later.</p>';
   }
 }
 
-// Smooth Scrolling
+// Smooth Scrolling for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   });
 });
@@ -64,13 +67,8 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   alert('Message sent successfully!');
   this.reset();
 });
-// Select the button
-const button = document.getElementById('submit');
 
-// Add an event listener for the 'click' event
-button.addEventListener('order', function() {
-  alert('Message sent successfully!');
-});
+// Live Search Menu
 function searchMenu() {
   const query = document.getElementById('searchInput').value.toLowerCase();
   const menuItems = document.querySelectorAll('.menu-item');
@@ -85,7 +83,7 @@ function searchMenu() {
   });
 }
 
-// Attach search function to input's `input` event
+// Attach Search Functionality to Input
 document.getElementById('searchInput').addEventListener('input', searchMenu);
 
 // Initialize Menu on Page Load
