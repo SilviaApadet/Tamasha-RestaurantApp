@@ -11,13 +11,14 @@ function searchmenu() {
     }
 });
 // Mock API URL
-const apiUrl = ("http://localhost:3000/menu")
-// ; // Replace with actual API if available
+const apiUrl = 'http://localhost:3000/menu'; // Replace with actual API if available
+
 // Fetch Menu Items from API
-fetch("http://localhost:3000/menu") 
-.then((response)=> response.json())
-.then((data)={
-   
+async function fetchMenu() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
     const menuContainer = document.getElementById('menuItems');
     menuContainer.innerHTML = ''; // Clear existing content
 
@@ -36,7 +37,6 @@ fetch("http://localhost:3000/menu")
     console.error('Error fetching menu:', error);
     document.getElementById('menuItems').innerHTML = '<p>Failed to load menu items. Please try again later.</p>';
   }
-
 }
 
 // Smooth Scrolling
@@ -65,14 +65,14 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
   alert('Message sent successfully!');
   this.reset();
 });
+//Array to store contact form details:
 
-/// Array to store contactForm
 let contactForm = [];
 
-document.querySelector("#order").onclick = function () {
-    const fIRSTName  = document.querySelector("#Input field");
+document.querySelector("#submit").onclick = function () {
+    const name  = document.querySelector("#Input field");
     const fIRSTName = fIRSTNameInput.value.trim();
-
+  
     if (fIRSTName.length === 0) {
         alert("Please enter a name.");
     } else {
@@ -81,14 +81,13 @@ document.querySelector("#order").onclick = function () {
 
         // Add name to the DOM
         document.querySelector("#fIRSTName").innerHTML += `
-        <div class="fIRSTName"> 
+        <div class="name"> 
             <span id="fIRSTName">
                 ${fIRSTName}
             </span>
-            <button class="delete">
-                <i class="fa fa-trash"></i>
-            </button>
         </div>
         `;
+
+
 // Initialize Menu on Page Load
 document.addEventListener('DOMContentLoaded', fetchMenu);
