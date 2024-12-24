@@ -6,7 +6,7 @@
         alert('Please enter a search term');
     } else {
         // In a real scenario, here you would process the search (e.g., search through a list of data, or make an API call)
-        document.getElementById('results').innerHTML = `<p>Results for: <strong>${this.attributeStyleMap}</strong></p>`;
+        document.getElementById('results').innerHTML = `<p>Results for: <strong>${searchQuery}</strong></p>`;
     }
 });
 // Mock API URL
