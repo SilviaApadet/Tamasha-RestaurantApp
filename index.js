@@ -71,13 +71,6 @@ const button = document.getElementById('submit');
 button.addEventListener('order', function() {
   alert('Message sent successfully!');
 });
-// Select the button
-const button = document.getElementById('search');
-
-// Add an event listener for the 'click' event
-button.addEventListener('search', function() {
-  alert('Our Pizza Menu');
-});
 
 // Attach search function to input's `input` menu
 searchInput.addEventListener("input", searchmenu);
