@@ -116,5 +116,16 @@
   </footer>
 
   <script src="index.js"></script>
+  <script>
+    fetch('http://localhost:3000/menu')
+    .then(res =>{
+      return res.json();
+    })
+    .then(data =>{
+      console.log(data);
+    })
+    .catch(error=> console.log(error));
+    
+  </script>
 </body>
 </html>
