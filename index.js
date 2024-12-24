@@ -1,7 +1,7 @@
 //search and display menu
  document.getElementById('searchButton').addEventListener('click', function() {
-     const searchQuery = document.getElementById('searchInput').value.C();
-    const searchContainer= document.getElementById()
+     const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+    const searchContainer= document.getElementById("result")
     if (searchQuery === '') {
         alert('Please enter a search term');
     } else {
@@ -20,16 +20,7 @@ async function fetchMenu() {
 
     const menuContainer = document.getElementById('menuItems');
     menuContainer.innerHTML = ''; // Clear existing content
-   const searchValue = searchInput.value.toLowerCase();
-                let filteredData;
-
-                if (searchValue === "") {
-                    filteredData = rawData;
-                } else {
-                    filteredData = rawData.filter((menuItem) => {
-                        return item.title.toLowerCase().includes(searchValue) || item.genre.toLowerCase().includes(searchValue) || item.platform.toLowerCase().includes(searchValue);
-                    })
-
+  
     data.forEach((item, index) => {
       const menuItem = document.createElement('div');
       menuItem.classList.add('menu-item');
