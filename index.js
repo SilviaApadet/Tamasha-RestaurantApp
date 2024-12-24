@@ -1,5 +1,5 @@
 //search and display menu
- document.getElementById('searchButton').addEventListener('click', function() {
+ document.getElementById('searchButton').addEventListener('search', function() {
      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
     const searchContainer= document.getElementById("result")
     if (searchQuery === '') {
