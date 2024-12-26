@@ -127,7 +127,11 @@
     })
     .then(data =>{
       data.array.forEach(menubar) => {
-        const markup= <li>$(menu)</li>};
+        const markup= document.createElement("li");
+        markup.innerHtml=`<h1>menu.name</h1>
+        <img src=menu.image alt=menu.name>
+        <p>menu.description</p>
+        <span>menu.price</span>`
         
         ducument.querySelector('ul').InsertAdjacentHTML('beforeend',markup);
         
