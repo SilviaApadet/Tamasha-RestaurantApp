@@ -121,23 +121,21 @@
 
   <script src="index.js"></script>
   <script>
-    fetch('http://localhost:3000/menu')
-    .then(res =>{
-      return res.json();
-    })
-    .then(data =>{
-      data.array.forEach(menubar) => {
-        const markup= document.createElement("li");
-        markup.innerHtml=`<h1>menu.name</h1>
-        <img src=menu.image alt=menu.name>
-        <p>menu.description</p>
-        <span>menu.price</span>`
-        
-        ducument.querySelector('ul').InsertAdjacentHTML('beforeend',markup);
-        
-      });
-    })
-    .catch(error=> console.log(error));
+fetch('http://localhost:3000/menu')
+  .then(res => res.json())
+  .then(data => {
+    data.array.forEach(menu => {
+      const markup = `
+        <li>
+          <h1>${menu.name}</h1>
+          <img src="${menu.image}" alt="${menu.name}">
+          <p>${menu.description}</p>
+          <span>${menu.price}</span>
+        </li>`;
+      document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+    });
+  })
+  .catch(error => console.log(error));
     
   </script>
 </body>
