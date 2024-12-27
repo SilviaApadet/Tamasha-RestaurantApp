@@ -1,72 +1,30 @@
-// Search and Display Results
-document.getElementById('searchButton').addEventListener('click', function () {
-  const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-  const searchContainer = document.getElementById('result');
-
-  if (searchQuery === '') {
-    alert('Please enter a search term');
-  } else {
-    searchContainer.innerHTML = `<p>Results for: <strong>${searchQuery}</strong></p>`;
-    // Add further search logic here if needed
-  }
-});
-
-// Mock API URL
-const apiUrl = 'http://localhost:3000/menu'; // Replace with actual API if available
-
 // Fetch Menu Items from API
-async function fetchMenu() {
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
 
-    const menuContainer = document.getElementById('menuItems');
-    menuContainer.innerHTML = ''; // Clear existing content
-
-    data.forEach((item, index) => {
-      const menuItem = document.createElement('div');
+fetch('http://localhost:3000/menu')
+.then(res => res.json())
+.then(data => {
+  const menuContainer = document.getElementById('menuItems');
+  menuContainer.innerHTML = ''; // Clear previous content
+  
+  data.forEach((item)=>{
+    const menuItem = document.createElement('div');
       menuItem.classList.add('menu-item');
       menuItem.innerHTML = `
-        <img src="https://via.placeholder.com/150?text=Dish+${index + 1}" alt="Dish ${index + 1}">
-        <h3>${item.title.substring(0, 20)}...</h3>
-        <p>${item.body.substring(0, 50)}...</p>
-        <span>$${(10 + index * 5).toFixed(2)}</span>
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <p>${item.description}</p>
+        <span>$${item.price}</span>
       `;
       menuContainer.appendChild(menuItem);
-    });
-  } catch (error) {
-    console.error('Error fetching menu:', error);
-    document.getElementById('menuItems').innerHTML =
-      '<p>Failed to load menu items. Please try again later.</p>';
+  })
+
+})
+.catch ((error) =>{
+  console.error('Error fetching menu:', error)
+  document.getElementById('menuItems').innerHTML =
+    '<p>Failed to load menu items. Please try again later.</p>';
   }
-}
-
-// Smooth Scrolling for Anchor Links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth',
-    });
-  });
-});
-
-// Form Validation
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-
-  if (!name || !email || !message) {
-    alert('All fields are required!');
-    return;
-  }
-
-  alert('Message sent successfully!');
-  this.reset();
-});
+)
 
 // Live Search Menu
 function searchMenu() {
@@ -83,8 +41,12 @@ function searchMenu() {
   });
 }
 
-// Attach Search Functionality to Input
+// Attach Search and Form Validation
 document.getElementById('searchInput').addEventListener('input', searchMenu);
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Message sent successfully!');
+  e.target.reset();
+});
 
 // Initialize Menu on Page Load
-document.addEventListener('DOMContentLoaded', fetchMenu);
