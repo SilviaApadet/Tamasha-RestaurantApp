@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tamasha Restaurant App</title>
+  <title>IJADETS Pizzas</title>
   <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+
 </head>
 <body>
   <!-- Header Section -->
   <header>
-    
     <div class="logo">IJADETS PIZZAS</div>
-    
     <nav>
       <ul>
         <li><a href="#home">Home</a></li>
@@ -28,83 +28,44 @@
     <p>Experience the best Pizzas in town.</p>
   </section>
 
-  <!-- Menu Section -->
-   <h1>menubar</h1>
-   <ul></ul>
-   <div class="search-container">
+  <!-- Search Section -->
+  <section class="search-container">
     <input type="text" id="searchInput" placeholder="Search...">
     <button id="searchButton">Search</button>
-     <p id="result"></p>
-     
-</div>
+    <p id="result"></p>
+  </section>
 
+  <!-- Menu Section -->
   <section id="menu" class="menu">
-    <u><h2>Our Pizza Menu</h2></u>
+    <h2>Our Pizza Menu</h2>
     <div id="menuItems">
-      <!-- Menu items will be loaded dynamically --> <u><b>PIZZAs<br></u>
-      <ul>
-      <b>Margherita Pizza</b> <br> <img src="c:\Users\hp\Downloads\download (2).jpg" alt="Margherita Pizza" /> <img src="c:\Users\hp\Downloads\download (3).jpg" alt="Margherita Pizza" /> <br>
-
-
-      Fresh mozzarella, tomato sauce, basil, and olive oil. <br>
-
-      $12.99 <br>
-      
-      <b>Pepperoni Pizza </b><br> <img src="c:\Users\hp\Downloads\download (4).jpg" alt="Restaurant Image" />   <img src="c:\Users\hp\Downloads\download (5).jpg" alt="Restaurant Image" /> <br>
-
-
-      Classic pizza topped with mozzarella cheese and pepperoni slices. <br> 
-
-
-      $14.99 <br>
-      
-      <b>BBQ Chicken Pizza <br> <img src="c:\Users\hp\Downloads\download (6).jpg" alt="Restaurant Image" /> <img src="c:\Users\hp\Downloads\download (7).jpg" alt="Restaurant Image" /> <br>
-
-
-      Grilled chicken, red onions, cilantro, mozzarella, and BBQ sauce. <br> 
-
-      $16.99 <br>
-      
-      <b>Veggie Supreme Pizza</b> <br> <img src="c:\Users\hp\Downloads\download (8).jpg" alt="Restaurant Image" />  <img src="c:\Users\hp\Downloads\download (8).jpg" alt="Restaurant Image" /> <img src="c:\Users\hp\Downloads\download (9).jpg"  alt="Veggie Supreme Pizza" /> <br>
- 
-
-      Mushrooms, bell peppers, onions, olives, spinach, and mozzarella. <br>
-
-      $15.99 <br>
-
-      </ul>
-    
-
+      <!-- Dynamically loaded menu items -->
     </div>
   </section>
 
   <!-- About Us Section -->
   <section id="about" class="about">
     <h2>About Us</h2>
-    <BR> <p>IJADETS’s opened on Thanksgiving Day 1990. Chef / Owner Ron Silver began baking pies and selling them to restaurants and his neighbors out of a small kitchen at the corner of Hudson and North Moore St. in Tribeca. Today, NYC’s beloved restaurant and pie shop celebrates 27 years of classic, made from scratch American cooking. </BR>
-
-   <U> <B>  Why It's Effective</B></U> <br>
-      
-      Rather than calling itself a “TAMASHA RESTS” or using the word "reliable," IJADETS’s uses its headline to make a specific claim — ”Served every day since 1990” — that demonstrates those ideas. This captures more attention and paints a richer, more vivid picture of its history and role in the community. The rest of the description supports this by adding details to the story of its founding and explaining that even three decades later, its scratch approach to cooking remains the same..</p>
+    <p>IJADETS’s opened on Thanksgiving Day 1990. Chef Ron Silver began baking pies and selling them out of a small kitchen in Tribeca. Today, the beloved restaurant celebrates over 30 years of made-from-scratch cooking.</p>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p>Address: NYAYO ESTATE .embakasi</p>
+    <p>Address: NYAYO ESTATE, Embakasi</p>
     <p>Operating Hours: 9 AM - 9 PM</p>
-    <p>PHONE NO:0790818827</p>
+    <p>Phone: 0790818827</p>
     <form id="contactForm">
-      <label for="name">fIRSTName:</label>
-      <input type="text" id="name" name="name">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
       <br>
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email">
+      <input type="email" id="email" name="email" required>
       <br>
-      <label for="message">text:</label>
-      <textarea id="message" name="message"></textarea>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
       <br>
-      <button type="submit">order</button>
+      <button type="submit">Send Message</button>
     </form>
   </section>
 
@@ -112,31 +73,13 @@
   <footer>
     <p>Follow us on:</p>
     <div class="social-icons">
-      <a href="sly apadet">Facebook</a>
-      <a href="sly apadet">Instagram</a>
-      <a href="sly apadet">Twitter</a>
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
     </div>
-    <p>&copy; 2024 IJADET RESTS. All rights reserved.</p>
+    <p>&copy; 2024 IJADETS PIZZAS. All rights reserved.</p>
   </footer>
 
-  <script src="index.js"></script>
-  <script>
-fetch('http://localhost:3000/menu')
-  .then(res => res.json())
-  .then(data => {
-    data.array.forEach(menu => {
-      const markup = `
-        <li>
-          <h1>${menu.name}</h1>
-          <img src="${menu.image}" alt="${menu.name}">
-          <p>${menu.description}</p>
-          <span>${menu.price}</span>
-        </li>`;
-      document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
-    });
-  })
-  .catch(error => console.log(error));
-    
-  </script>
+  <!-- JavaScript -->
 </body>
 </html>
